@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+<!-- this code above says: i am underneath this html page and connects them together -->
+<!-- defines the this page as the block that will be underneathe the html page and its contents -->
+{% block content %}
+     <!-- This segment is used to leave a message for users relative to the page opened you will find it on every page. -->
+    <div class="p-5 mb-6 top" style="margin-top: 50px;" >
+        <div class="container">
+            <h1 class="display-6 fw-bold" style="color:#1d1308;">Welcome to The Warehouse.</h1>
+            <p class="col-md-6 fs-5 fw-bold" style="color:#1d1308;" >To start using the searching for goods please register.</p>
+        </div>
+    </div>  
+    <br>
+    <br>
+    <!-- just some standard text to read styled a little and spaced out -->
+        <div class="container">
+            <div class="container" style="font-size: 17px; text-align: center; margin-top: 15px;">
+                <b>At The Warehouse we have everything you will ever need so why shop anywhere else.</b>
+                <div style="margin-top: 5px;"></div>
+                <b>We will cater every all resources from least presevative foods to the most vintage wines.</b>
+                <div style="margin-top: 5px;"></div>
+                <b>This is your sign to start the luxery life style with us Today!</b>
+            </div>
+        </div>
+<!-- ends the block  -->
+{% endblock %}

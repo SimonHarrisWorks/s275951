@@ -1,0 +1,47 @@
+/* This document hold all of the website's CSS code unless problems occured with CSS finding the correct elements to change 
+in these cases i would edit the element directly with style="(CSS code)"  */
+/* This centers the cards to make them nearly ordered and having good spacing between them */
+#test{
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    min-width: 100%;
+}
+/* This customised the width of the cards and gap between the cards vertically.  */
+.card-container{
+   max-width: 300px;
+    margin-top: 50px;
+}
+/* This code effects the colors of the cards the radius of the border its shading and making sure the cards are a consistant size
+by maximising the width to the card container insecuring no matter the size of the contents of lack their of. it woul dbe consistant. */
+.card{
+    width: 300px;
+    background-color: #c9c6cf;
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+/* This effects the title of the cards in this case the stock items or results from searching as well as making sure they span the entire card. */
+.card-content h3 {
+    font-size: 30px;
+    display:flex;
+    justify-content: center;
+}
+/* This effects the core text of the card which holds the details about the stock item or searched for items and ensuring the color is consistant. */
+.card-content p{
+    color: #1d1308;
+    font-size: 15px;
+}
+/* This customised the button that would lead to item adding to the cart it effects the dimensions, width, positions background color
+text color and the gaps between the button and theo ther aspects of the card.  */
+.card-content .btn {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+    background-color: #1d1308;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    color: #c9c6cf;
+}

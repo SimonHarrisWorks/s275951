@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<!-- this code above says: i am underneath this html page and connects them together -->
+<!-- defines the this page as the block that will be underneathe the html page and its contents -->
+{% block content %}
+        <!-- This segment is used to leave a message for users relative to the page opened you will find it on every page. -->
+        <div class="p-5 mb-6 top" style="margin-top: 50px;" >
+            <div class="container">
+                <h1 class="display-6 fw-bold" style="color:#1d1308; text-align:center;">Please login here! if you have no account please register! </h1>
+            </div>
+        </div>  
+            <!-- This segment of code is to collect data for the database of the user so we can check every account for the appropraite details -->
+        <div class="container" style="max-width:60%;">
+            <!-- sends a post to views.py of what the user inputed  to confirm if they are the user or not -->
+            <form method="POST" action="{% url 'login' %}">
+                <!-- This cross site request forgery token is a basic cyber security measure -->
+                {% csrf_token %}
+                <!-- asks he user for their password and username -->
+                <div class="form-group" style="padding: 5px;">
+                  <input type="text" class="form-control" placeholder="Please enter your username: " name="username">
+                </div>
+                <div class="form-group" style="padding: 5px;">
+                    <input type="password" class="form-control" placeholder="Please enter your password: " name="password">
+                </div>
+                <!-- the submit button for the form -->
+                <button type="submit" class="btn" style="padding: 7px; margin-left:5px; padding: 8px 16px; background-color: #1d1308; border-radius: 8px; margin-bottom: 12px; color: #c9c6cf;"> Login </button>
+              </form>
+            </div>
+        </div>
+     </div>
+<!-- ends the block  -->
+{% endblock %}

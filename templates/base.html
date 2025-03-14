@@ -1,0 +1,75 @@
+{% load static %}
+<!-- loads the static document for all pages -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- The meta elements are used to enable any device to use and access the webpages  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta charset=”utf-8”/>
+        <!-- the title element is used to name the tab at the top of the browser when the webpage is open -->
+        <title>The Warehouse</title>
+        <!-- the link element links to bootstrap CSS. -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- this link element links to the websites own css. -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+        <!-- this script links to java script bootstrap this is for the dropdown menu in the nav bar only. -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+         <!-- this code adds a nav bar where the website will use a burger bar with a drop down menu to access web pages on all devices
+         no matter of size. this will only be seen when needed the nav bar will also always stick to the top of the page when scrolling
+         this will only be releavnt on the stock pages and the results pages -->
+        <nav class="navbar navbar-expand-lg" style="position: fixed; z-index: 99; width:100%; top: 0px; background-color:#c9c6cf;"><div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}"> <strong>The Warehouse</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- these ultra and list elements each hold a anchor element to hold a django url and text they work as buttons you can press
+                 to be redirected or reload the page -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:black;" href="{% url 'home'%}"></i> Home</a>
+                    </li>
+                    <!-- when the user is logged in it will show:-->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:black;" href="{% url 'stock'%}"></i> Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:black;" href="{% url 'logout'%}"></i> Logout</a>
+                    </li>
+                    <!-- when the user is not logged in it will show: -->
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:black;" href="{% url 'login'%}"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:black;" href="{% url 'signup'%}"></i> Register</a>
+                    </li>
+                    <!-- ends the if statement above-->
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        </nav> 
+        <!-- if a message exists for that user -->
+        {% if messages %}
+            <!-- go through each message and for each message: -->
+            {% for message in messages %}
+                <!-- bootstrap staple alert with closeable button with the text being the message -->
+                <div class="alert alert-warning alert-dismissible fade show container" role="alert" style="margin-top:65px; width:66%; fixed;">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <!-- ends the for loop-->
+            {% endfor %}
+        <!-- ends the if loop -->
+        {% endif %}
+        <!-- enables other webpages to append to the bottom of this one meaning i only need to make one template page and every other page
+         can ignore the code above as it is standard for the website -->
+        {% block content %}
+        <!-- closes the block being the websites other pages  -->
+        {% endblock %}
+    </body>
+</html>

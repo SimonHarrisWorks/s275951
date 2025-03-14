@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+<!-- this code above says: i am underneath this html page and connects them together -->
+<!-- defines the this page as the block that will be underneathe the html page and its contents -->
+{% block content %}
+        <!-- This segment is used to leave a message for users relative to the page opened you will find it on every page. -->
+        <div class="p-5 mb-6 top" style="margin-top: 50px;" >
+            <div class="container">
+                <h1 class="display-6 fw-bold" style="color:#1d1308; text-align:center;">We truly hope you enjoy your experience with us. </h1>
+            </div>
+        </div>  
+        <!-- This segment of code is to collect data for the database of the user so we can make an account for them with the appropraite details -->
+        <div class="container" style="max-width:60%;">
+            <form method="POST" action="{% url 'signup' %}">
+                <!-- This cross site request forgery token is a basic cyber security measure -->
+                {% csrf_token %}
+                <!-- a form to collect data after the form is check in viwes.py the data will be put in the customer table-->
+                <div class="form-group" style="padding: 5px;">
+                    <input type="text" class="form-control" placeholder="What is your First Name?" name="CFirstName">
+                </div>
+                <div class="form-group" style="padding: 5px;">
+                    <input type="text" class="form-control"  placeholder="What is your username?" name="CUsername">
+                </div>
+                <div class="form-group" style="padding: 5px;">
+                  <input type="email" class="form-control" placeholder="Enter your email" name="CEmail">
+                </div>
+                <div class="form-group" style="padding: 5px;">
+                  <input type="password" class="form-control" placeholder="Please make a strong Password" name="CPassword">
+                </div>
+                <button type="submit" class="" style="padding: 7px; margin-left:5px padding: 8px 16px; background-color: #1d1308; border-radius: 8px; margin-bottom: 12px; color: #c9c6cf;; "> Submit </button>
+              </form>
+        </div>
+<!-- ends the block  -->
+{% endblock %}
