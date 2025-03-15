@@ -21,19 +21,19 @@
             </div>
         </div>
     <!-- This segment is focused on Cards displaying what is in the stock table. -->
-    <div id="test"class="container">
+    <div id="test"class="container" style="  display: inline-flex; justify-content: center; flex-wrap: wrap; gap: 50px; min-width: 100%;">
         {% for item in TS %}
-        <div class ="card-container">
-        <div class ="row card">
+        <div class ="card-container" style="max-width: 300px; margin-top: 50px;">
+        <div class ="row card" style="width: 300px; background-color: #c9c6cf; border-radius: 8px; overflow:hidden; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);">
             {% load static %}
             <!-- The static image is a placeholder for later found at https://pixabay.com/photos/puzzle-missing-particle-last-piece-654963/ -->
             <img style="margin-top: 10px;" src="{% static 'media/puzzle-654963_1280.jpg'%}" alt="missing image"> 
             <div class="card-content">
                 <!-- the following django is to gather information from the database and present it in card for example
                 item.stockname will show the results and every stock assigned with it and their attached stockname in the database-->
-                <h3> {{ item.StockName }}</h3>
-                    <p> Each {{ item.StockName }} is £{{ item.Price }} each we currently have only {{ item.QTY }} items in stock hurry while stock lasts! </p>
-                <a href="" class="btn">Buy Now</a>
+                <h3 style="font-size: 30px; display:flex; justify-content: center;"> {{ item.StockName }}</h3>
+                    <p style="color: #1d1308; font-size: 15px;"> Each {{ item.StockName }} is £{{ item.Price }} each we currently have only {{ item.QTY }} items in stock hurry while stock lasts! </p>
+                <a href="" class="btn" style="display:flex; justify-content: center; flex-wrap: wrap; padding: 8px 16px; background-color: #1d1308; border-radius: 8px; margin-bottom: 12px; color: #c9c6cf;">Buy Now</a>
             </div>
         </div>
         </div>

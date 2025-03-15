@@ -28,19 +28,19 @@
                 {% if search %}
                     you search for: {{search}}
                     <br/>
-                    <div id="test"class="container">
+                    <div id="test"style="display: inline-flex; justify-content: center; flex-wrap: wrap; gap: 50px; min-width: 100%;" class="container">
                         {% for stock in result %}
-                            <div class ="card-container">
-                            <div class ="row card">
+                            <div class ="card-container" style="max-width: 300px; margin-top: 50px;">
+                            <div class ="row card" style="width: 300px; background-color: #c9c6cf; border-radius: 8px; overflow:hidden; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);">
                             {% load static %}
                              <!-- The static image is a placeholder for later found at https://pixabay.com/photos/puzzle-missing-particle-last-piece-654963/ -->
                             <img style="margin-top: 10px;" src="{% static 'media/puzzle-654963_1280.jpg'%}" alt="missing image"> 
                             <div class="card-content">
                             <!-- the following django is to gather information from the database and present it in card for example
                              stock.stockname will show the results and every stock assigned with it and their attached stockname in the database-->
-                            <h3> {{ stock.StockName }}</h3>
-                            <p> Each {{ stock.StockName }} is £{{ stock.Price }} each we currently have only {{ stock.QTY }} items in stock hurry while stock lasts! </p>
-                            <a href="" class="btn">Buy Now</a>
+                            <h3 style="font-size: 30px; display:flex; justify-content: center;"> {{ stock.StockName }}</h3>
+                            <p style="color: #1d1308; font-size: 15px;"> Each {{ stock.StockName }} is £{{ stock.Price }} each we currently have only {{ stock.QTY }} items in stock hurry while stock lasts! </p>
+                            <a href="" class="btn" style="display:flex; justify-content: center; flex-wrap: wrap; padding: 8px 16px; background-color: #1d1308; border-radius: 8px; margin-bottom: 12px; color: #c9c6cf;">Buy Now</a>
                         </div>
                     </div>
                 </div>
