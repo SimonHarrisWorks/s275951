@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-r+xw3v(kqckhq7dzjfw_5nu$nvmgl(q^i=*xb$7o_ro68w$6-7
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['thewarehouse.onrender.com',"127.0.0.1"]
+ALLOWED_HOSTS = ['thewarehouse.onrender.com',"127.0.0.1","*"]
 
 
 
